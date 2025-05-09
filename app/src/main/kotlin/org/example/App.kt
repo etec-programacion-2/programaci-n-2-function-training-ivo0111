@@ -54,35 +54,45 @@ fun main() {
 
 // Etapa 1
 fun calcularPromedio(nota1: Double, nota2: Double): Double {
-    // Implementar aquí
-    return 0.0
+    val promedio = (nota1 + nota2) / 2
+    return promedio
 }
 
 fun esAprobado(nota: Double): Boolean {
-    // Implementar aquí
-    return false
+    val aprobado = nota > 6
+    return aprobado
 }
 
 // Etapa 2
 fun calcularPromedioTresNotas(nota1: Double, nota2: Double, nota3: Double): Double {
-    // Implementar aquí
-    return 0.0
+    val promedio = (nota1 + nota2 + nota3)/3
+    return promedio
 }
 
 fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String {
-    // Implementar aquí
-    return ""
+    val aprobado = if (esAprobado(nota)) "aprobado" else "desaprobado"
+    val texto = "El alumno $nombre $apellido está $aprobado"
+    return texto
 }
 
 // Etapa 3
 fun calcularPromedioCurso(notas: List<Double>): Double {
-    // Implementar aquí
-    return 0.0
+    var promedio = 0.0
+    for (i in notas){
+        promedio += i
+    }
+    promedio = promedio/notas.count()
+    return promedio
 }
 
 fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<String> {
-    // Implementar aquí
-    return emptyList()
+    var aprobados = mutableListOf<String>()
+    for (i in 0..(nombres.count()-1)){
+        if (notas[i] > 6){
+            aprobados.add(nombres[i])
+        }
+    }
+    return aprobados
 }
 
 // Etapa 4
