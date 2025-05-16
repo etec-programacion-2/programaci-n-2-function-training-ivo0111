@@ -75,7 +75,7 @@ fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String 
     return texto
 }
 
-// Etapa 3
+// Etapa 3 
 fun calcularPromedioCurso(notas: List<Double>): Double {
     var promedio = 0.0
     for (i in notas){
