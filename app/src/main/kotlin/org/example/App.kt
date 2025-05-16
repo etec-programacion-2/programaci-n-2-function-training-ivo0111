@@ -53,42 +53,48 @@ fun main() {
 // TODO: Implementar las siguientes funciones:
 
 // Etapa 1
+// Función que calcula el promedio de dos notas
 fun calcularPromedio(nota1: Double, nota2: Double): Double {
     val promedio = (nota1 + nota2) / 2
     return promedio
 }
 
+// Función que determina si una nota es aprobatoria (mayor a 6)
 fun esAprobado(nota: Double): Boolean {
     val aprobado = nota > 6
     return aprobado
 }
 
 // Etapa 2
+// Función que calcula el promedio de tres notas
 fun calcularPromedioTresNotas(nota1: Double, nota2: Double, nota3: Double): Double {
     val promedio = (nota1 + nota2 + nota3)/3
     return promedio
 }
 
+// Función que obtiene el estado del alumno (aprobado o desaprobado) en función de su nota
 fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String {
     val aprobado = if (esAprobado(nota)) "aprobado" else "desaprobado"
     val texto = "El alumno $nombre $apellido está $aprobado"
     return texto
 }
 
-// Etapa 3 
+// Etapa 3
+// Función que calcula el promedio de un curso a partir de una lista de notas
 fun calcularPromedioCurso(notas: List<Double>): Double {
     var promedio = 0.0
     for (i in notas){
         promedio += i
     }
-    promedio = promedio/notas.count()
+    promedio = promedio/notas.count()  // Calcula el promedio dividiendo entre el número de notas
     return promedio
 }
 
+// Función que devuelve una lista de los nombres de los alumnos aprobados (nota > 6)
 fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<String> {
     var aprobados = mutableListOf<String>()
     for (i in 0..(nombres.count()-1)){
-        if (notas[i] > 6){
+        if (notas[i] > 6){  // Si la nota del alumno es mayor que 6, es aprobado
             aprobados.add(nombres[i])
         }
     }
@@ -96,39 +102,43 @@ fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<St
 }
 
 // Etapa 4
+// Función que genera un boletín con el nombre del alumno y las materias con sus respectivas notas
 fun generarBoletin(nombre: String, materias: List<String>, notas: List<Double>): String {
     var materiasBoletin = ""
     for (i in 0..(materias.count()-1)){
-        materiasBoletin = "${materiasBoletin} ${materias[i]}: ${notas[i]}"
+        materiasBoletin = "${materiasBoletin} ${materias[i]}: ${notas[i]}"  // Formatea las materias y sus notas
     }
-    val boletin = "${nombre} ${materiasBoletin}"
+    val boletin = "${nombre} ${materiasBoletin}"  // Une el nombre con las materias y notas
     return boletin
 }
 
+// Función que obtiene la nota más alta de una lista de notas
 fun obtenerNotaMasAlta(notas: List<Double>): Double {
-    var notaAlta = notas[0]
+    var notaAlta = notas[0]  // Inicializa la primera nota como la más alta
     for (i in notas){
-        if (i>notaAlta){
+        if (i > notaAlta){  // Si se encuentra una nota más alta, se actualiza
             notaAlta = i
         }
     }
     return notaAlta
 }
 
+// Función que obtiene la nota más baja de una lista de notas
 fun obtenerNotaMasBaja(notas: List<Double>): Double {
-    var notaBaja = notas[0]
+    var notaBaja = notas[0]  // Inicializa la primera nota como la más baja
     for (i in notas){
-        if (i<notaBaja){
+        if (i < notaBaja){  // Si se encuentra una nota más baja, se actualiza
             notaBaja = i
         }
     }
     return notaBaja
 }
 
+// Función que cuenta cuántos alumnos aprobaron (nota > 6.5)
 fun contarAprobados(notas: List<Double>): Int {
     var count = 0
     for (i in notas){
-        if (i>6.5){
+        if (i > 6.5){  // Si la nota es mayor que 6.5, el alumno aprobó
             count++
         }
     }
